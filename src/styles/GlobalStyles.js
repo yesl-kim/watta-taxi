@@ -24,6 +24,13 @@ const GlobalStyles = createGlobalStyle`
     font-size: 16px;
     font-weight: bold;
   }
+  input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: none;
+  }
   `;
 
 export default GlobalStyles;

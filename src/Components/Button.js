@@ -40,7 +40,7 @@ export const RgbaBtn = styled(Button)`
       color: ${selected};
 
       &:hover {
-        background-color: ${rgba(color, 0.1)};
+        background-color: ${rgba(selected, 0.1)};
       }
     `;
   }}
