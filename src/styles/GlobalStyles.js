@@ -14,6 +14,16 @@ const GlobalStyles = createGlobalStyle`
     font-size: 14px;
     font-family: 'Noto Sans KR', sans-serif;
   }
+
+  button {
+    outline: none;
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
   `;
 
 export default GlobalStyles;
