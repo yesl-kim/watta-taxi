@@ -13,7 +13,7 @@ function MainBanner() {
       .then(data => {
         setBanner(data.banner);
       });
-  });
+  }, []);
 
   return (
     <Section>
