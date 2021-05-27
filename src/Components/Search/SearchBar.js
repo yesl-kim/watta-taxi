@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 import Date from './Components/Date';
 import Passenger from './Components/Passenger';
 import Button from '../Button';
 import Location from './Components/Location';
 
-function SearchBar({ isRoundTrip }) {
+function SearchBar({ isRoundTrip, history }) {
   const [isModalOn, setIsModalOn] = useState({
     departure: false,
     arrival: false,
@@ -13,8 +14,8 @@ function SearchBar({ isRoundTrip }) {
     passenger: false,
   });
   const [departure, setDeparture] = useState({
-    name: '서울숲',
-    code: 'SSS',
+    name: '망원',
+    code: 'MWN',
   });
   const [arrival, setArrival] = useState({
     name: '',
@@ -48,6 +49,16 @@ function SearchBar({ isRoundTrip }) {
     if (passenger > 0) setPassenger(prev => --prev);
   };
 
+  const goToList = (departure, arrival) => {
+    if (departure.name && arrival.name && seat) {
+      history.push(
+        `/list?departure_location_name=${departure.name}&arrival_location_name=${arrival.name}&seat_type_name=${seat}`
+      );
+    } else {
+      alert('모두 기입해주세요');
+    }
+  };
+
   return (
     <Container aria-label="왕복/ 편도 수상 택시 선택">
       <Location
@@ -70,14 +81,19 @@ function SearchBar({ isRoundTrip }) {
         substract={substract}
         setSeat={setSeat}
       />
-      <SubmitButton size="7%" type="submit" color="blue">
+      <SubmitButton
+        size="7%"
+        type="submit"
+        color="blue"
+        onClick={() => goToList(departure.name, arrival.name)}
+      >
         검색
       </SubmitButton>
     </Container>
   );
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);
 
 const Container = styled.form`
   ${({ theme }) => theme.flexBox('between', 'stretch')}

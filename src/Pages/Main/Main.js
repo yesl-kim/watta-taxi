@@ -1,12 +1,7 @@
 import React from 'react';
-import MainTaxi from './MainTaxi';
 
 function Main() {
-  return (
-    <>
-      <MainTaxi />
-    </>
-  );
+  return <></>;
 }
 
 export default Main;

@@ -37,7 +37,6 @@ const Container = styled.div`
   position: relative;
   margin: 0 auto;
   padding: 55px 0;
-  // 너비와 배경색은 임시. 부모 컴포넌트 안에 넣을 때 삭제할 것
   width: 1064px;
 `;
 
@@ -68,9 +67,3 @@ const TabBtn = styled.li`
       opacity: 1;
     `}
 `;
-
-// const OnTabBtn = styled(TabBtn)`
-//   border-bottom: 2px solid #fff;
-//   font-weight: normal;
-//   opacity: 1;
-// `;
