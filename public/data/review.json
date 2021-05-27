@@ -1,0 +1,16 @@
+[
+  {
+    "review_id": 1,
+    "user_name": "양양",
+    "user_profile_url": "<url 주소>",
+    "rating": 4.5,
+    "review": "좋아요"
+  },
+  {
+    "review_id": 2,
+    "user_name": "양양",
+    "user_profile_url": "<url 주소>",
+    "rating": 4.5,
+    "review": "좋아요"
+  }
+]

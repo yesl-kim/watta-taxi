@@ -1,0 +1,12 @@
+{
+  "driver": {
+    "id": 1,
+    "name": "최원근",
+    "taxi_company_name": "Taxi Choi-gging",
+    "taxi_company_logo_url": "https://images.unsplash.com/photo-1562307534-a03738d2a81a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80",
+    "profile_url": "https://trello-attachments.s3.amazonaws.com/60ab36332dad093c8d65aaca/60ae0bf22e177364dda07287/009ba9f9da9e107a8cbcee44b0d5acb2/image.jpeg",
+    "review_count": 0,
+    "average_rating": 0,
+    "introduction": "여러분의 따뜻한 기사 낑낑이입니다. 시몬스 못지않은 편안함과 함께 안전을 책임지겠습니다."
+  }
+}
