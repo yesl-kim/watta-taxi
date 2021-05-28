@@ -14,3 +14,7 @@ export const GetToken = () => {
 export const SetToken = token => {
   sessionStorage.setItem(ACCESS_TOKEN_KEY, token);
 };
+
+export const RemoveToken = token => {
+  sessionStorage.removeItem(ACCESS_TOKEN_KEY, token);
+};
