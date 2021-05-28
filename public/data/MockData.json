@@ -1,0 +1,84 @@
+{
+  "sns": [
+    {
+      "imageUrl": "./images/insta.png",
+      "text": "Wa::ta Taxi 인스타그램 페이지",
+      "description": " 와타택시 인스타 페이지에서 각 여행지별로 정리된 유용한 정보와 여행자분들을 위한 이벤트를 확인해보세요"
+    },
+    {
+      "imageUrl": "./images/facebook.png",
+      "text": "Wa::ta Taxi 페이스북 페이지",
+      "description": "세계 곳곳에서 활동중인 마이리얼트립의 가이드님과 여행자분들이 보내주신 아름다운 사진을 감상해보세요."
+    },
+    {
+      "imageUrl": "./images/youtube.png",
+      "text": "Wa::ta Taxi 유튜브 페이지",
+      "description": "마이리얼트립의 네이버 블로그에서 리얼생생 여행정보, 여행 후기, 추천 가이드 정보를 확인해보세요."
+    }
+  ],
+  "station": [
+    {
+      "imageUrl": "./images/mang-won.png",
+      "stationName": "망원",
+      "description": "망원으로 떠나보세요!"
+    },
+    {
+      "imageUrl": "./images/dongjag-yeog.png",
+      "stationName": "동작역",
+      "description": "휴식의 공간 동작으로 오세요"
+    },
+    {
+      "imageUrl": "./images/63-bilding.png",
+      "stationName": "63빌딩",
+      "description": "서울의 랜드마크 여러분을 초대합니다!"
+    },
+    {
+      "imageUrl": "./images/ichon-naluteo.png",
+      "stationName": "인천 나루터",
+      "description": "연인과의 시간 아름다운 나루터에서.."
+    }
+  ],
+  "banner": [
+    {
+      "imageUrl": "./images/banner.png"
+    },
+    {
+      "imageUrl": "./images/banner1.png"
+    },
+    {
+      "imageUrl": "./images/banner2.png"
+    },
+    {
+      "imageUrl": "./images/banner3.png"
+    },
+    {
+      "imageUrl": "./images/banner4.png"
+    }
+  ],
+  "driver": [
+    {
+      "imageUrl": "./images/driver1.png",
+      "name": "[기사] 세용",
+      "introduce": "보트 운전 경력 30년 쌓았읍니다. 감사합니다.",
+      "star": 5
+    },
+    {
+      "imageUrl": "./images/driver2.png",
+      "name": "[기사] DaSul ",
+      "introduce": "아들램들 같이 생각허구 안전하게 집으로 모십니다.",
+      "star": 4
+    },
+    {
+      "imageUrl": "./images/driver3.png",
+      "name": "[기사] 예술",
+      "introduce": " 비가오나 눈이 오나 예술택시는 멈추지 않습니다. ",
+      "star": 3
+    },
+    {
+      "imageUrl": "./images/driver4.png",
+      "name": "[기사] 은혜",
+      "introduce": "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+      "star": 5
+    }
+  ]
+}
