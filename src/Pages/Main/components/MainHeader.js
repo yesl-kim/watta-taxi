@@ -4,26 +4,35 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 function MainHeader() {
   const [stationBox, setStation] = useState([]);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    fetch('/data/MockData.json')
+    fetch('http://3.34.199.216:8000/taxis/locations')
       .then(res => res.json())
       .then(data => {
         setStation(data.station);
       });
   }, []);
 
+  const prevSlide = () => {
+    setCount(count >= 0 ? count === 0 : count + 1057);
+  };
+
+  const nextSlide = () => {
+    setCount(count < -1060 ? count === -2114 : count - 1057);
+  };
+
   return (
     <Header>
       <Title>
         <h1>어디로 떠나세요?</h1>
       </Title>
+      <PrevBtn onClick={prevSlide}>
+        <IoIosArrowBack size="23" />
+      </PrevBtn>
       <SwiperContainer>
-        <PrevBtn>
-          <IoIosArrowBack size="23" />
-        </PrevBtn>
         {stationBox.map((station, index) => (
-          <SwiperToken key={index}>
+          <SwiperToken key={index} transform={count}>
             <img src={station.imageUrl} alt="" />
             <InfoBox>
               <LocationName>
@@ -36,10 +45,10 @@ function MainHeader() {
             <Button>둘러보기</Button>
           </SwiperToken>
         ))}
-        <NextBtn>
-          <IoIosArrowForward size="23" />
-        </NextBtn>
       </SwiperContainer>
+      <NextBtn onClick={nextSlide}>
+        <IoIosArrowForward size="23" />
+      </NextBtn>
     </Header>
   );
 }
@@ -54,6 +63,7 @@ from{
 `;
 
 const Header = styled.div`
+  position: relative;
   margin-bottom: 64px;
 `;
 
@@ -74,9 +84,9 @@ const Title = styled.div`
 
 const SwiperContainer = styled.div`
   display: flex;
-  position: relative;
   justify-content: space-between;
-  height: 359px;
+  overflow: hidden;
+  max-width: 99%;
 `;
 
 const PrevBtn = styled.div`
@@ -87,7 +97,7 @@ const PrevBtn = styled.div`
   left: 0%;
   top: 50%;
   width: 40px;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 50%);
   padding: 8px;
   border-radius: 50%;
   background-color: #fff;
@@ -103,23 +113,30 @@ const PrevBtn = styled.div`
 
 const NextBtn = styled(PrevBtn)`
   left: 100%;
-  transform: translate(-100%, -50%);
+  transform: translate(-80%, 50%);
 `;
 
 const SwiperToken = styled.div`
   position: relative;
   display: inline-block;
   margin-right: 20px;
-  width: 240px;
+  width: 100%;
   border-radius: 8px;
   cursor: pointer;
   overflow: hidden;
   box-shadow: 0 8px 12px 0 rgb(33 37 41 / 15%);
+  min-width: 23.5%;
+  transform: ${props =>
+    props.transform !== 0 && `translateX(${props.transform}px)`};
+  transition: ease 0.5s;
 
   img {
+    object-fit: cover;
     width: 100%;
-    height: 100%;
+    height: 360px;
+    bottom: 0;
     border-radius: 8px;
+    filter: contrast(80%) brightness(1.1);
   }
 
   img:hover {

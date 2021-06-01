@@ -1,44 +1,56 @@
+/* eslint-disable jsx-a11y/no-distracting-elements */
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 import { useHistory } from 'react-router-dom';
+
 function MainTaxi() {
   const history = useHistory();
+
   const goToDeTailPage = driver => {
     history.push(`/detail/${driver.id}`);
   };
+
   const [driverBox, setDriver] = useState([]);
   const [count, setCount] = useState(0);
+  const [box, setBox] = useState([]);
+
   useEffect(() => {
-    // http://3.34.199.216:8000/taxis/taxidrivers
-    // /data/MockData.json
-    fetch('http://3.34.199.216:8000/taxis/taxidrivers')
+    const sorting = box === 'stars' ? 'rating' : 'review';
+
+    fetch(`http://3.34.199.216:8000/taxis/taxidrivers?sort=${sorting}`)
       .then(res => res.json())
       .then(data => {
         setDriver(data.drivers);
       });
-  }, []);
+  }, [box]);
   const prevSlide = () => {
-    // 버튼을 누르면 ImageWrap 안에 있는 transform : translateX() 의 값이 변한다.
     setCount(count >= 0 ? count === 0 : count + 1019);
   };
+
   const nextSlide = () => {
     setCount(count < -3060 ? count === 0 : count - 1019);
   };
+
+  const getSortedData = e => {
+    setBox(e.target.id);
+    console.log(box);
+  };
+
   return (
     <Container>
       <h1>오늘의 기사님을 확인해보세요!</h1>
       <ListContainer>
         <ListParent>
-          <ListChildren>
-            <img src="./images/rank.png" alt="" />
+          <ListChildren id="stars" onMouseEnter={getSortedData}>
+            <font size="6">⭐️</font>
             <span>별점 순</span>
           </ListChildren>
-          <ListChildren>
-            <img src="./images/recent.png" alt="" />
-            <span>최근 본 순</span>
-          </ListChildren>
+          <ReviewPage id="review" onMouseEnter={getSortedData}>
+            <font size="6">📝</font>
+            <span>리뷰 많은 순</span>
+          </ReviewPage>
         </ListParent>
       </ListContainer>
       <InfoBox>
@@ -46,6 +58,9 @@ function MainTaxi() {
         <PrevBtn onClick={prevSlide}>
           <IoIosArrowBack size="23" />
         </PrevBtn>
+        <marquee>
+          <font size="10">🚤</font>
+        </marquee>
         <DriverBox>
           {driverBox.map((driver, index) => (
             <Driver
@@ -57,12 +72,21 @@ function MainTaxi() {
             >
               <img src={driver.profile_url} alt="" />
               <DriverInfo>
-                <span>서울 . 수상택시</span>
-                <h2>{driver.name}</h2>
-                <p>{driver.introduction}</p>
-                <Star>
-                  <span>STAR : {driver.star}</span>
-                </Star>
+                <div>
+                  <span>서울 . 수상택시</span>
+                  <p style={{ color: '#506ad4' }}>{driver.taxi_company_name}</p>
+                </div>
+                <div>
+                  <h2>{driver.name}</h2>
+                  <p>{driver.introduction}</p>
+
+                  <Evaluate>
+                    <span>
+                      ⭐️{Math.round(driver.average_rating * 10) / 10}
+                    </span>
+                    <h4>📝Review : {driver.review_count}</h4>
+                  </Evaluate>
+                </div>
               </DriverInfo>
             </Driver>
           ))}
@@ -112,25 +136,37 @@ const InfoBox = styled.div`
 const DriverBox = styled.div`
   display: flex;
   max-width: 99%;
-  height: 420px;
   overflow: hidden;
+  border-top: 10px solid #a3cdd9;
+  padding-bottom: 5px;
 `;
 const Driver = styled.div`
+  position: relative;
   display: inline-block;
-  margin-top: 13px;
+  margin-top: 5px;
   margin-right: 18px;
   border-radius: 4px;
   box-shadow: inset 0 0 0 1px rgb(0 0 0 / 16%);
   min-width: 237px;
   cursor: pointer;
+  padding-bottom: 10px;
+  height: 415px;
   transform: ${props =>
     props.transform !== 0 && `translateX(${props.transform}px)`};
   transition: ease 0.5s;
+
   &:hover {
+    box-shadow: 0 8px 12px 0 rgb(33 37 41 / 15%);
+    background-color: ${props => props.theme.lightGray};
+
+    h2 {
+      font-size: 16px;
+    }
   }
   img {
     width: 100%;
-    height: 50%;
+    object-fit: cover;
+    height: 230px;
     border-radius: 4px;
   }
   span {
@@ -145,12 +181,29 @@ const Driver = styled.div`
     border-bottom: 1px dotted #848c94;
   }
   p {
-    margin-bottom: 4px;
-    line-height: 18px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 20px;
+    color: gray;
+  }
+
+  h4 {
+    color: ${props => props.theme.darkGray};
   }
 `;
 const DriverInfo = styled.div`
   padding: 8px 16px 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  p {
+    font-size: 12px;
+  }
 `;
 const Container = styled.div`
   width: 1060px;
@@ -174,38 +227,34 @@ const ListParent = styled.div`
 `;
 const ListChildren = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 14px;
-  width: 265px;
+  width: 200px;
   border: 1px solid #dee2e6;
   border-radius: 5px 5px 0 0;
   background-color: #f5f6f7;
   &:hover {
-    background-color: #fff;
-    border-bottom: 1px solid #fff;
-  }
-  img {
-    margin-left: 20px;
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 4px;
+    background-color: ${props => props.theme.main};
   }
   span {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 30px;
-    font-weight: 700;
-    font-size: 24px;
+    margin-left: 15px;
+    font-weight: 400;
+    font-size: 18px;
     line-height: 18px;
     letter-spacing: 1px;
     color: #343a40;
   }
 `;
-const Star = styled.div`
-  vertical-align: bottom;
-  span {
-    align-self: flex-end;
-  }
+
+const ReviewPage = styled(ListChildren)``;
+
+const Evaluate = styled.div`
+  position: absolute;
+  bottom: 10px;
 `;
+
 export default MainTaxi;
