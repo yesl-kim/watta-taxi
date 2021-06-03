@@ -1,0 +1,38 @@
+{
+  "result": [
+    {
+      "order_id": 24,
+      "round_trip": "왕복",
+      "departure_location": "망원",
+      "departure_location_code": "MWN",
+      "arrival_location": "여의나루역",
+      "arrival_location_code": "YEN",
+      "departure_date": "05-26",
+      "comeback_date": "05-26",
+      "passenger_number": 2,
+      "going_taxi_company_name": "DaMo taxi",
+      "going_taxi_company_logo": "https://younggeon-myawsbucket.s3.ap-northeast-2.amazonaws.com/logo_damo.png",
+      "going_price": "50000.000",
+      "coming_taxi_company_name": "Dasul Taxi",
+      "coming_taxi_company_logo": "https://younggeon-myawsbucket.s3.ap-northeast-2.amazonaws.com/logo_dasul.png",
+      "coming_price": "15600.000"
+    },
+    {
+      "order_id": 23,
+      "round_trip": "왕복",
+      "departure_location": "망원",
+      "departure_location_code": "MWN",
+      "arrival_location": "여의나루역",
+      "arrival_location_code": "YEN",
+      "departure_date": "05-26",
+      "comeback_date": "05-26",
+      "passenger_number": 2,
+      "going_taxi_company_name": "DaMo taxi",
+      "going_taxi_company_logo": "https://younggeon-myawsbucket.s3.ap-northeast-2.amazonaws.com/logo_damo.png",
+      "going_price": "50000.000",
+      "coming_taxi_company_name": "Dasul Taxi",
+      "coming_taxi_company_logo": "https://younggeon-myawsbucket.s3.ap-northeast-2.amazonaws.com/logo_dasul.png",
+      "coming_price": "15600.000"
+    }
+  ]
+}
