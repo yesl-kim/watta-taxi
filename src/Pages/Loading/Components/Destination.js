@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function Destination({ course }) {
+function Destination({ code, spot, date }) {
   return (
     <Container>
-      <Code>{course.code}</Code>
-      <Spot>{course.spot}</Spot>
-      <Date>{course.date}</Date>
+      <Code>{code}</Code>
+      <Spot>{spot}</Spot>
+      <Date>{date}</Date>
     </Container>
   );
 }
@@ -14,6 +14,7 @@ function Destination({ course }) {
 export default Destination;
 
 const Container = styled.div`
+  margin: 0 2rem;
   color: #e7f4fd;
   text-align: center;
 `;
