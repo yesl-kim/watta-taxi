@@ -5,6 +5,8 @@ import DetailDriverInfo from './Components/DetailDriverInfo';
 import DetailReserve from './Components/DetailReserve';
 import { API } from '../../config';
 import { useParams } from 'react-router-dom';
+import Nav from '../../Components/Nav';
+import Footer from '../Main/Components/MainFooter';
 
 const isValidObject = obj => !!Object.keys(obj).length;
 
@@ -24,28 +26,32 @@ const DetailDrivers = () => {
   if (!isValidObject(taxiDriverInfo)) return 'Loading...';
 
   return (
-    <Container>
-      <DetailMain>
-        <DetailDriverInfo
-          id={taxiDriverInfo.id}
-          name={taxiDriverInfo.name}
-          profile={taxiDriverInfo.profile_url}
-          company={taxiDriverInfo.taxi_company_name}
-          introduction={taxiDriverInfo.introduction}
-          averageGrade={taxiDriverInfo.average_rating}
-          companyLogo={taxiDriverInfo.taxi_company_logo_url}
-        />
-        <DetailComments
-          id={taxiDriverInfo.id}
-          name={taxiDriverInfo.name}
-          profile={taxiDriverInfo.profile_url}
-          company={taxiDriverInfo.taxi_company_name}
-          introduction={taxiDriverInfo.introduction}
-          averageGrade={taxiDriverInfo.average_rating}
-        />
-      </DetailMain>
-      <DetailReserve />
-    </Container>
+    <>
+      <Nav />
+      <Container>
+        <DetailMain>
+          <DetailDriverInfo
+            id={taxiDriverInfo.id}
+            name={taxiDriverInfo.name}
+            profile={taxiDriverInfo.profile_url}
+            company={taxiDriverInfo.taxi_company_name}
+            introduction={taxiDriverInfo.introduction}
+            averageGrade={taxiDriverInfo.average_rating}
+            companyLogo={taxiDriverInfo.taxi_company_logo_url}
+          />
+          <DetailComments
+            id={taxiDriverInfo.id}
+            name={taxiDriverInfo.name}
+            profile={taxiDriverInfo.profile_url}
+            company={taxiDriverInfo.taxi_company_name}
+            introduction={taxiDriverInfo.introduction}
+            averageGrade={taxiDriverInfo.average_rating}
+          />
+        </DetailMain>
+        <DetailReserve />
+      </Container>
+      <Footer />
+    </>
   );
 };
 

@@ -20,23 +20,21 @@ const DetailDriverInfo = props => {
         <TitleContent>
           <h1>[Watta Taxi] {props.name} 기사님</h1>
         </TitleContent>
-        <TitleRating>
-          <ReviewStar>{getStar(props.averageGrade)}</ReviewStar>
-          <TitleRatingGrade>
-            <p>{Math.floor(props.averageGrade * 100) / 100}</p>
-          </TitleRatingGrade>
-        </TitleRating>
       </DriverTitle>
       <DriverDescription>
         <DriverImg alt="기사님 사진" src={props.profile} />
         <DriverIntroduction>
-          <div>
+          <TitleRating>
+            <ReviewStar>{getStar(props.averageGrade)}</ReviewStar>
+            <TitleRatingGrade>
+              <p>{Math.round(props.averageGrade * 100) / 100}</p>
+            </TitleRatingGrade>
+          </TitleRating>
+          <DriverIntro>"{props.introduction}"" </DriverIntro>
+          <CompanyInfos>
             <CompanyLogo alt={props.company} src={props.companyLogo} />
-          </div>
-          <div>성함 :{props.name}</div>
-          <div>회사 :{props.company}</div>
-          <div>소개 :{props.introduction} </div>
-          <div></div>
+            <CompanyName>{props.company}</CompanyName>
+          </CompanyInfos>
         </DriverIntroduction>
       </DriverDescription>
     </>
@@ -64,7 +62,8 @@ const TitleRating = styled.div`
 `;
 
 const TitleRatingGrade = styled.div`
-  font-size: 12px;
+  font-size: 30px;
+  margin-left: 10px;
 `;
 
 //기사님 사진, 소개
@@ -72,20 +71,54 @@ const DriverDescription = styled.article`
   ${({ theme }) => theme.flexBox('start', 'center')}
 `;
 
+const CompanyInfos = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 340px;
+  padding: 10px;
+  color: ${({ theme }) => theme.darkgray};
+  /* background-color: ${({ theme }) => theme.gray}; */
+  border-radius: 10px;
+  justify-content: flex-end;
+  position: relative;
+  top: 30%;
+`;
+
 const CompanyLogo = styled.img`
-  width: 100px;
+  width: 50px;
   border-radius: 70%;
+  border-style: solid;
+  border-width: 6px;
+  color: ${({ theme }) => theme.main};
 `;
 
 const DriverImg = styled.img`
   width: 250px;
   height: 300px;
   margin: 20px;
+  border-radius: 15px;
+`;
+
+const CompanyName = styled.span`
+  margin: 5px;
+  color: ${({ theme }) => theme.darkgray};
+  /* font-weight: bold; */
+  font-size: 20px;
+`;
+
+const DriverIntro = styled.p`
+  font-size: 20px;
+  padding: 10px;
+  line-height: 30px;
+  vertical-align: middle;
 `;
 
 const DriverIntroduction = styled.div`
   font-size: 18px;
-  margin: 20px;
+  padding: 20px;
+  height: 100%;
+  max-height: 700px;
 `;
 
 const ReviewStar = styled.div`
@@ -94,7 +127,7 @@ const ReviewStar = styled.div`
 `;
 
 const I = styled.i`
-  color: ${props => (props.color ? props.theme.main : 'gray')};
-  font-size: ${props => (props.size ? '10px' : '40px')};
+  color: ${props => (props.color ? ({ theme }) => theme.main : 'gray')};
+  font-size: ${props => (props.size ? '30px' : '40px')};
   margin: ${props => (props.size ? '0' : '5px')};
 `;

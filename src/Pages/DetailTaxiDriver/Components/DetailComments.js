@@ -48,13 +48,13 @@ const DetailComments = props => {
   };
 
   const uploadReviewData = () => {
-    fetch(`${API.TAXI_DRIVER_COMMENT}?driver_id=${props.id}`, {
+    fetch(`${API.TAXI_DRIVER_COMMENT}`, {
       method: 'POST',
       headers: {
         AUTHORIZATION: token.get(),
       },
       body: JSON.stringify({
-        driver_id: 1,
+        driver_id: props.id,
         rating: starGrade,
         text: comment,
       }),
@@ -99,6 +99,7 @@ const DetailComments = props => {
       .then(res => res.json())
       .then(review => {
         SetcommentList(review.reviews);
+        console.log(review);
         Setcomment('');
       });
   }, [refreshPage, props.id]);
@@ -245,7 +246,6 @@ const Review = styled.section`
   ${({ theme }) => theme.flexBox('start', 'center')}
   flex-direction: column;
   width: 100%;
-  height: 300px;
   background-color: ${({ theme }) => theme.white};
 `;
 
