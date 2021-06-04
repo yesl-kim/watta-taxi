@@ -1,40 +1,61 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { bold, size, color } from './fontStyle';
 import LineTo from '../../../Components/LineTo';
 import Button from '../../../Components/Button';
+import { getDate } from '../../../util';
 
-function Course() {
+const getTime = time => {
+  return time.slice(-8, -3);
+};
+
+function Course({ info, selectCourse }) {
+  const { price, seat_remain, courses, seat_type } = info;
+  const {
+    departure_time,
+    arrival_time,
+    taxi_code,
+    arrival_location_code,
+    departure_location_code,
+    taxi_company,
+    taxi_company_url,
+  } = courses;
+
   return (
     <Container>
       <FlexBox>
         <Logo>
-          <img alt="택시회사로고" src="http://placehold.it/30x30" />
+          <img alt={`${taxi_company} 로고`} src={taxi_company_url} />
         </Logo>
         <Company>
-          <Word>티웨이항공</Word>
-          <Word>TW729</Word>
+          <Word>{taxi_company}</Word>
+          <Word>{taxi_code}</Word>
         </Company>
       </FlexBox>
       <Schedule>
         <Departure>
-          <FlightTime>17:40</FlightTime>
-          <SpotCode>GMP</SpotCode>
+          <FlightTime>{getTime(departure_time)}</FlightTime>
+          <SpotCode>{departure_location_code}</SpotCode>
         </Departure>
         <TimeGroup>
           <LineTo type="oneWay" color="#848c94" />
           <Time>1시간 10분</Time>
         </TimeGroup>
         <Arrival>
-          <FlightTime>18:50</FlightTime>
-          <SpotCode>CJU</SpotCode>
+          <FlightTime>{getTime(arrival_time)}</FlightTime>
+          <SpotCode>{arrival_location_code}</SpotCode>
         </Arrival>
       </Schedule>
-      <Word>할인석</Word>
-      <Word>9석</Word>
+      <Word>{seat_type.seat_name}</Word>
+      <Word>{seat_remain}석</Word>
       <FlexBox>
-        <Price>12,000원</Price>
-        <Button width="64px" height="40px" color="blue">
+        <Price>{Number(price).toLocaleString()}원</Price>
+        <Button
+          width="64px"
+          height="40px"
+          color="blue"
+          onClick={() => selectCourse(info)}
+        >
           선택
         </Button>
       </FlexBox>
@@ -44,44 +65,80 @@ function Course() {
 
 export default Course;
 
-export function SelectedCourse() {
+export function SelectedCourse({ course }) {
+  const {
+    direction,
+    departure_date,
+    departure_location_name,
+    arrival_location_name,
+    price,
+    courses,
+    seat_type,
+  } = course;
+  const {
+    departure_time,
+    arrival_time,
+    taxi_code,
+    arrival_location_code,
+    departure_location_code,
+    taxi_company,
+    taxi_company_url,
+  } = courses;
+  const DEPARTURE_DATE = getDate.toMediumString(new Date(departure_date));
+
   return (
     <SelectedContainer>
       <FlexBox>
-        <DirectionIcon>가는편</DirectionIcon>
-        <Spot>김포</Spot>
+        <DirectionIcon>{direction}</DirectionIcon>
+        <Spot>{departure_location_name}</Spot>
         <LineTo type="oneWay" color="#848c94" size="20px" />
-        <Spot>제주</Spot>
-        <Date>06월27일(일)</Date>
+        <Spot>{arrival_location_name}</Spot>
+        <DepartureDate bold>{DEPARTURE_DATE}</DepartureDate>
       </FlexBox>
       <FlexBox>
         <Logo>
-          <img alt="택시회사로고" src="http://placehold.it/30x30" />
+          <img alt={`${taxi_company} 로고`} src={taxi_company_url} />
         </Logo>
         <Company>
-          <Word>티웨이항공</Word>
-          <Word>TW729</Word>
+          <Word>{taxi_company}</Word>
+          <Word>{taxi_code}</Word>
         </Company>
       </FlexBox>
       <Schedule>
         <Departure>
-          <FlightTime>17:40</FlightTime>
-          <SpotCode>GMP</SpotCode>
+          <FlightTime>{getTime(departure_time)}</FlightTime>
+          <SpotCode>{departure_location_code}</SpotCode>
         </Departure>
         <TimeGroup>
           <LineTo type="oneWay" color="#848c94" />
           <Time>1시간 10분</Time>
         </TimeGroup>
         <Arrival>
-          <FlightTime>18:50</FlightTime>
-          <SpotCode>CJU</SpotCode>
+          <FlightTime>{getTime(arrival_time)}</FlightTime>
+          <SpotCode>{arrival_location_code}</SpotCode>
         </Arrival>
       </Schedule>
-      <Word>할인석</Word>
-      <Price>12,000원</Price>
+      <Word>{seat_type.seat_name}</Word>
+      <Price>{`${Number(price).toLocaleString()}원`}</Price>
       <Cancel color="#e9ecef" textColor="#495056">
         항공편 변경
       </Cancel>
+    </SelectedContainer>
+  );
+}
+
+export function UserCourse({ direction, date, departure, arrival }) {
+  const DEPARTURE_DATE = getDate.toMediumString(new Date(date));
+
+  return (
+    <SelectedContainer>
+      <FlexBox>
+        <DirectionIcon outline>{direction}</DirectionIcon>
+        <Spot>{departure}</Spot>
+        <LineTo type="oneWay" color="#848c94" size="20px" />
+        <Spot>{arrival}</Spot>
+        <DepartureDate>{DEPARTURE_DATE}</DepartureDate>
+      </FlexBox>
     </SelectedContainer>
   );
 }
@@ -163,7 +220,7 @@ const Price = styled.span`
 
 // SelectedCourse Component Style
 const SelectedContainer = styled(Container)`
-  margin: 0 0 24px;
+  margin: 0 0 8px;
   padding: 16px 24px;
   &:hover {
     box-shadow: none;
@@ -181,6 +238,14 @@ const DirectionIcon = styled.span`
   background-color: ${({ theme }) => theme.blue};
   ${size('s')};
   color: #fff;
+
+  ${({ outline, theme }) =>
+    outline &&
+    css`
+      background-color: #fff;
+      border: 1px solid ${theme.blue};
+      color: ${theme.blue};
+    `}
 `;
 
 const Spot = styled.span`
@@ -190,9 +255,8 @@ const Spot = styled.span`
   ${color()};
 `;
 
-const Date = styled.span`
+const DepartureDate = styled.span`
   margin-left: 8px;
-  ${bold};
-  ${size('s')};
+  font-weight: ${({ bold }) => (bold ? '600' : '400')} ${size('s')};
   ${color()};
 `;

@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { FaCheckSquare } from 'react-icons/fa';
 import { color, size } from './fontStyle';
 
-function CheckBox({ children, checked, ...rest }) {
+function CheckBox({ children, checked, onChange, ...rest }) {
   return (
     <Label>
-      <input type="checkbox" checked={checked} {...rest} />
+      <input type="checkbox" checked={checked} onChange={onChange} {...rest} />
       {checked ? <Checked /> : <Unchecked />}
       <span>{children}</span>
     </Label>
@@ -15,7 +15,7 @@ function CheckBox({ children, checked, ...rest }) {
 
 function CheckBoxes({ title, subTopics, onChange, check }) {
   return (
-    <Container onChange={onChange}>
+    <Container>
       <li>
         <h2>{title}</h2>
         <div>
@@ -24,6 +24,7 @@ function CheckBoxes({ title, subTopics, onChange, check }) {
               key={subTopic.id}
               name={subTopic.name}
               checked={check[subTopic.name]}
+              onChange={onChange}
             >
               {subTopic.time
                 ? `${subTopic.name} ${subTopic.time}`
