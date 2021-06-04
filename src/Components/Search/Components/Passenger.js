@@ -129,7 +129,6 @@ const SeatList = styled.ul`
   padding: 12px 0 16px;
   border-top: 1px solid #f1f3f5;
   li {
-    ${({ theme }) => theme.flexBox('start', 'center')};
     width: 50%;
     flex-basis: 50%;
     flex-shrink: 0;
@@ -152,6 +151,8 @@ const SeatList = styled.ul`
     }
 
     label {
+      ${({ theme }) => theme.flexBox('start', 'center')};
+      line-height: 19px;
       cursor: pointer;
     }
   }

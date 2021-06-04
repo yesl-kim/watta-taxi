@@ -4,10 +4,6 @@ import { RgbaBtn } from '../../Button';
 import { selectBox } from './style';
 
 function LocationModal({ name, spots, close, select }) {
-  const isEmptyObject = obj => {
-    return !Object.keys(obj).length;
-  };
-
   const handleClick = (e, name, code) => {
     select({ name, code });
     close(e.target.name);
@@ -28,19 +24,20 @@ function LocationModal({ name, spots, close, select }) {
           </RgbaBtn>
         </Title>
         <SpotList>
-          {!isEmptyObject(spots) &&
-            spots.map(spot => (
-              <Spot key={spot.id}>
-                <label>
-                  <input
-                    type="radio"
-                    name={name}
-                    onClick={e => handleClick(e, spot.name, spot.code)}
-                  />
-                  {spot.name}
-                </label>
-              </Spot>
-            ))}
+          {spots.map(spot => (
+            <Spot key={spot.id}>
+              <label>
+                <input
+                  type="radio"
+                  name={name}
+                  onClick={e =>
+                    handleClick(e, spot.stationName, spot.stationCode)
+                  }
+                />
+                {spot.stationName}
+              </label>
+            </Spot>
+          ))}
         </SpotList>
       </LocationSelect>
     </Modal>
@@ -100,9 +97,4 @@ const Spot = styled.li`
     height: 0;
     opacity: 0;
   }
-`;
-
-const Hidden = styled.div`
-  opacity: 0;
-  visibility: 0;
 `;

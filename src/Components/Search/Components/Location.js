@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { InputBox, Input } from './style';
 import LocationModal from './LocationModal';
 
-function Location({ modalState, departureState, arrivalState, switchSpot }) {
-  const [spots, setSpots] = useState({});
-  const [isModalOn, openModal, closeModal] = modalState;
+function Location({
+  size,
+  spots,
+  modalState,
+  departureState,
+  arrivalState,
+  switchSpot,
+}) {
+  const [selectBoxState, openModal, closeModal] = modalState;
   const [departure, setDeparture] = departureState;
   const [arrival, setArrival] = arrivalState;
 
-  useEffect(() => {
-    fetch('/data/spots.json')
-      .then(spots => spots.json())
-      .then(spots => setSpots(spots));
-  }, []);
-
   return (
     <>
-      <InputBox size="40%" onClick={openModal}>
+      <InputBox size={size} onClick={openModal}>
         <Input
           placeholder="출발지가 어디인가요?"
           name="departure"
@@ -32,7 +32,7 @@ function Location({ modalState, departureState, arrivalState, switchSpot }) {
           value={arrival.name}
         />
       </InputBox>
-      {isModalOn.departure && (
+      {selectBoxState.departure && (
         <LocationModal
           name="departure"
           spots={spots}
@@ -40,7 +40,7 @@ function Location({ modalState, departureState, arrivalState, switchSpot }) {
           select={setDeparture}
         />
       )}
-      {isModalOn.arrival && (
+      {selectBoxState.arrival && (
         <LocationModal
           name="arrival"
           spots={spots}

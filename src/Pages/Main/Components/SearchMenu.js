@@ -1,30 +1,28 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
+import { darken } from 'polished';
 import SearchBar from '../../../Components/Search/SearchBar';
 
 function SearchMenu() {
   const [isRoundTrip, setIsRoundTrip] = useState(true);
 
-  const tabBtnProps = {
-    roundTrip: {
-      clicked: isRoundTrip,
-      onClick: () => {
-        setIsRoundTrip(true);
-      },
-    },
-    onwayTrip: {
-      clicked: !isRoundTrip,
-      onClick: () => {
-        setIsRoundTrip(false);
-      },
-    },
+  const setRoundTrip = () => {
+    setIsRoundTrip(true);
+  };
+
+  const setOneWayTrip = () => {
+    setIsRoundTrip(false);
   };
 
   return (
     <Container>
       <Tab>
-        <TabBtn {...tabBtnProps.roundTrip}>왕복</TabBtn>
-        <TabBtn {...tabBtnProps.onwayTrip}>편도</TabBtn>
+        <TabBtn clicked={isRoundTrip} onClick={setRoundTrip}>
+          왕복
+        </TabBtn>
+        <TabBtn clicked={!isRoundTrip} onClick={setOneWayTrip}>
+          편도
+        </TabBtn>
       </Tab>
       <SearchBar isRoundTrip={isRoundTrip} />
     </Container>
@@ -35,14 +33,19 @@ export default SearchMenu;
 
 const Container = styled.div`
   position: relative;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 55px 0;
-  width: 1064px;
+  width: 100%;
+  background-color: ${({ theme }) => darken(0.1, theme.blue)};
+  z-index: 9999;
 `;
 
 const Tab = styled.ul`
   display: flex;
   margin-bottom: 17px;
+  width: 1050px;
 `;
 
 const TabBtn = styled.li`
