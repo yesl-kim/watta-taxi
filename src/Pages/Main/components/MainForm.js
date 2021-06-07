@@ -3,13 +3,11 @@ import styled from 'styled-components';
 import MainHeader from './MainHeader';
 import MainBanner from './MainBanner';
 import MainTaxi from './MainTaxi';
-import Nav from '../../../Components/Nav';
 import Footer from './MainFooter';
 
 function MainForm() {
   return (
     <Container>
-      <Nav />
       <MainHeader />
       <MainBanner />
       <MainTaxi />

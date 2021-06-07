@@ -135,10 +135,12 @@ function List({ location }) {
   };
 
   useEffect(() => {
-    customFetch(`${API.COURSE}${query}`, {}, course => {
-      setIsReady(true);
-      setCourses(course.Message);
-    });
+    setTimeout(() => {
+      customFetch(`${API.COURSE}${query}`, {}, course => {
+        setIsReady(true);
+        setCourses(course.Message);
+      });
+    }, 3000);
   }, []);
 
   useEffect(() => {
@@ -149,7 +151,7 @@ function List({ location }) {
       .join('&');
 
     setQuery(
-      `${listQueryStart}&departure_time=${departureTime}&${taxiCompanies}&price=${filterPrice.values[0]}&sort_list=${sort}`
+      `${listQueryStart}&departure_time=${departureTime}&${taxiCompanies}&price=${filterPrice.values[0]}&sort=${sort}`
     );
   }, [filterDepartureTime, checkCompany, filterPrice, sort]);
 
