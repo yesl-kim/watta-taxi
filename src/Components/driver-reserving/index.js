@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-function DetailReserve() {
+
+export const DriverReserving = () => {
   return (
     <div>
       <DetailSide>
@@ -24,9 +25,7 @@ function DetailReserve() {
       </DetailSide>
     </div>
   );
-}
-
-export default DetailReserve;
+};
 
 const DetailSide = styled.div`
   ${({ theme }) => theme.flexBox('start', 'center')}

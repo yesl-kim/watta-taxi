@@ -1,10 +1,10 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import Destination from './Components/Destination';
-import LineTo from '../../Components/LineTo';
+import { Destination } from '../../Components/loading-destination';
+import * as Elements from '../../Components/elements';
 import { getDate } from '../../util';
 
-function Loading({ courseInfo }) {
+export const Loading = ({ courseInfo }) => {
   const {
     departure_date,
     departure_location_name,
@@ -30,7 +30,7 @@ function Loading({ courseInfo }) {
           spot={departure_location_name}
           date={startDate}
         />
-        <LineTo color="rgba(256, 256, 256, 0.5)" />
+        <Elements.Arrow color="rgba(256, 256, 256, 0.5)" />
         <Destination
           code={arrival_location_code}
           spot={arrival_location_name}
@@ -47,9 +47,7 @@ function Loading({ courseInfo }) {
       </Icon>
     </Container>
   );
-}
-
-export default Loading;
+};
 
 const loading = keyframes`
   0% {

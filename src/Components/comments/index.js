@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { API } from '../../../config';
-import { token } from '../../../Components/Token';
+import { token } from '../../utils/token';
+import { API } from '../../config';
 
-const DetailComments = props => {
+export const Comments = ({ id, averageGrade }) => {
   const [starValue, SetstarValue] = useState([...Array(5).fill(false)]);
 
   const [starGrade, SetstarGrade] = useState(0);
@@ -54,7 +54,7 @@ const DetailComments = props => {
         AUTHORIZATION: token.get(),
       },
       body: JSON.stringify({
-        driver_id: props.id,
+        driver_id: id,
         rating: starGrade,
         text: comment,
       }),
@@ -95,14 +95,14 @@ const DetailComments = props => {
   };
 
   useEffect(() => {
-    fetch(`${API.TAXI_DRIVER_COMMENT}?driver_id=${props.id || 1}`)
+    fetch(`${API.TAXI_DRIVER_COMMENT}?driver_id=${id || 1}`)
       .then(res => res.json())
       .then(review => {
         SetcommentList(review.reviews);
         console.log(review);
         Setcomment('');
       });
-  }, [refreshPage, props.id]);
+  }, [refreshPage, id]);
 
   return (
     <CommentContainer>
@@ -112,7 +112,7 @@ const DetailComments = props => {
         <CommentRating>
           <CommentRatingTitle>후기 평균 별점</CommentRatingTitle>
           <CommentRatingGrade>
-            {Math.round(props.averageGrade * 100) / 100}
+            {Math.round(averageGrade * 100) / 100}
           </CommentRatingGrade>
         </CommentRating>
         <CommentDetail>
@@ -156,7 +156,6 @@ const DetailComments = props => {
     </CommentContainer>
   );
 };
-export default DetailComments;
 
 const CommentContainer = styled.section`
   ${({ theme }) => theme.flexBox('start', 'center')}

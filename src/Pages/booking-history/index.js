@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { bold, size, color } from '../List/Components/fontStyle';
-import LineTo from '../../Components/LineTo';
-import Nav from '../../../src/Components/Nav';
-import Footer from '../Main/Components/MainFooter';
+import { bold, size, color } from '../list/Components/fontStyle';
+import * as Elements from '../../Components/elements';
+import Nav from '../../Components/nav';
+import { Footer } from '../../Components/footer';
 
-function Reserve() {
+export const BookingHistory = () => {
   const [reservedTaxi, setReservedTaxi] = useState([]);
 
   useEffect(() => {
@@ -68,7 +68,7 @@ function Reserve() {
                               </SpotCode>
                             </Departure>
                             <TimeGroup>
-                              <LineTo type="oneWay" color="#848c94" />
+                              <Elements.Arrow type="oneWay" color="#848c94" />
                             </TimeGroup>
                             <Arrival>
                               <FlightTime>
@@ -121,7 +121,7 @@ function Reserve() {
                               </SpotCode>
                             </Departure>
                             <TimeGroup>
-                              <LineTo type="oneWay" color="#848c94" />
+                              <Elements.Arrow type="oneWay" color="#848c94" />
                             </TimeGroup>
                             <Arrival>
                               <FlightTime>
@@ -156,9 +156,7 @@ function Reserve() {
       <Footer />
     </>
   );
-}
-
-export default Reserve;
+};
 
 // Course Component Style
 

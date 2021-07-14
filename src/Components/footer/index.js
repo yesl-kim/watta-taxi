@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-function MainFooter() {
+export const Footer = () => {
   const [inputs, setInputs] = useState([]);
 
   useEffect(() => {
@@ -13,8 +13,8 @@ function MainFooter() {
   }, []);
 
   return (
-    <Container>
-      <Footer>
+    <>
+      <Container>
         <img src="./images/profile.png" alt="" />
         <InviteFriend>
           <p>
@@ -23,7 +23,7 @@ function MainFooter() {
           <span>친구에게 5,000원 쿠폰을 선물하고 2,000 포인트를 받으세요.</span>
         </InviteFriend>
         <Button>포인트 받기</Button>
-      </Footer>
+      </Container>
       <Section>
         <h1>Wa::tta Taxi의 여행 정보</h1>
         <TripSns>
@@ -36,21 +36,15 @@ function MainFooter() {
           ))}
         </TripSns>
       </Section>
-    </Container>
+    </>
   );
-}
+};
 
 const Container = styled.div`
-  margin: 0 auto;
-  width: 1070px;
-`;
-
-const Footer = styled.div`
   display: flex;
   align-items: center;
+  margin: 50px 0 56px;
   padding: 27px 32px;
-  margin-top: 50px;
-  margin-bottom: 56px;
   border-radius: 4px;
   border: 1px solid #e7f4fd;
   background-color: #f5fbff;
@@ -135,5 +129,3 @@ const Sns = styled.div`
     line-height: 1.71;
   }
 `;
-
-export default MainFooter;

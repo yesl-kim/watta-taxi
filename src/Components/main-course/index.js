@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-function MainHeader() {
+export const MainCourse = () => {
   const [stationBox, setStation] = useState([]);
   const [count, setCount] = useState(0);
 
@@ -51,7 +51,7 @@ function MainHeader() {
       </NextBtn>
     </Header>
   );
-}
+};
 
 const effect = keyframes`
 from{
@@ -190,5 +190,3 @@ const Button = styled.button`
   color: #495056;
   cursor: pointer;
 `;
-
-export default MainHeader;

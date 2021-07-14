@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Button, { RgbaBtn } from './Button';
 import { API } from '../config';
 import { GetToken, SetToken, RemoveToken } from './GetSetToken';
-import SearchMenu from '../Pages/Main/Components/SearchMenu';
+import SearchMenu from '../Pages/main/Components/SearchMenu';
 
 export const token = {
   //왜 export 쓰지?

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { API } from '../../../src/config';
+import { API } from '../../config';
 import { GetToken, SetToken } from '../../Components/GetSetToken';
-import Nav from '../../Components/Nav';
-import Footer from '../Main/Components/MainFooter';
+import Nav from '../../Components/nav';
+import { Footer } from '../../Components/footer';
 
 const { Kakao } = window;
 
@@ -12,7 +12,7 @@ export const token = {
   set: SetToken,
 };
 
-const Login = ({ history }) => {
+export const Login = ({ history }) => {
   const [isSignUp, setIsSignUp] = useState(false);
 
   const KakaoLogin = () => {
@@ -76,8 +76,6 @@ const Login = ({ history }) => {
     </>
   );
 };
-
-export default Login;
 
 const LoginContainer = styled.div`
   ${({ theme }) => theme.flexBox('center', 'center')};

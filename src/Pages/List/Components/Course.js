@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { bold, size, color } from './fontStyle';
-import LineTo from '../../../Components/LineTo';
+import * as Elements from '../../../Components/elements';
 import Button from '../../../Components/Button';
 import { getDate } from '../../../util';
 
@@ -38,7 +38,7 @@ function Course({ info, selectCourse }) {
           <SpotCode>{departure_location_code}</SpotCode>
         </Departure>
         <TimeGroup>
-          <LineTo type="oneWay" color="#848c94" />
+          <Elements.Arrow type="oneWay" color="#848c94" />
           <Time>1시간 10분</Time>
         </TimeGroup>
         <Arrival>
@@ -91,7 +91,7 @@ export function SelectedCourse({ course }) {
       <FlexBox>
         <DirectionIcon>{direction}</DirectionIcon>
         <Spot>{departure_location_name}</Spot>
-        <LineTo type="oneWay" color="#848c94" size="20px" />
+        <Elements.Arrow type="oneWay" color="#848c94" size="20px" />
         <Spot>{arrival_location_name}</Spot>
         <DepartureDate bold>{DEPARTURE_DATE}</DepartureDate>
       </FlexBox>
@@ -110,7 +110,7 @@ export function SelectedCourse({ course }) {
           <SpotCode>{departure_location_code}</SpotCode>
         </Departure>
         <TimeGroup>
-          <LineTo type="oneWay" color="#848c94" />
+          <Elements.Arrow type="oneWay" color="#848c94" />
           <Time>1시간 10분</Time>
         </TimeGroup>
         <Arrival>
@@ -135,7 +135,7 @@ export function UserCourse({ direction, date, departure, arrival }) {
       <FlexBox>
         <DirectionIcon outline>{direction}</DirectionIcon>
         <Spot>{departure}</Spot>
-        <LineTo type="oneWay" color="#848c94" size="20px" />
+        <Elements.Arrow type="oneWay" color="#848c94" size="20px" />
         <Spot>{arrival}</Spot>
         <DepartureDate>{DEPARTURE_DATE}</DepartureDate>
       </FlexBox>

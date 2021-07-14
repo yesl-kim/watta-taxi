@@ -3,15 +3,15 @@ import styled from 'styled-components';
 import { bold, size, color } from './Components/fontStyle';
 import Course, { SelectedCourse, UserCourse } from './Components/Course';
 import CheckBoxes from './Components/Checkbox';
-import Loading from '../Loading/Loading';
+import { Loading } from '../loading';
 import { queryToObj, objToQuery, customFetch } from '../../util';
 import { API } from '../../config';
 import InputRange from './Components/InputRange';
 import Button from '../../Components/Button';
-import Nav from '../../Components/Nav';
-import Footer from '../Main/Components/MainFooter';
+import Nav from '../../Components/nav';
+import { Footer } from '../../Components/footer';
 
-function List({ location }) {
+export const List = ({ location }) => {
   // 쿼리스트링 처리 =================
   // url에서 쿼리스트링을 객체로 가져오기
   const queryObj = queryToObj(decodeURI(location.search));
@@ -257,7 +257,7 @@ function List({ location }) {
       <Footer />
     </>
   );
-}
+};
 
 export default List;
 

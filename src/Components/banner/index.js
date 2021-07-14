@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
-function MainBanner() {
+export const Banner = () => {
   const [bannerBox, setBanner] = useState([]);
 
   useEffect(() => {
@@ -25,10 +25,8 @@ function MainBanner() {
       </Carousel>
     </Section>
   );
-}
+};
 
 const Section = styled.div`
   margin-bottom: 96px;
 `;
-
-export default MainBanner;

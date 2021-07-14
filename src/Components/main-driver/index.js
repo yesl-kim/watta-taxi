@@ -5,7 +5,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 import { useHistory } from 'react-router-dom';
 
-function MainTaxi() {
+export const MainDriver = () => {
   const history = useHistory();
 
   const goToDeTailPage = driver => {
@@ -97,7 +97,7 @@ function MainTaxi() {
       </InfoBox>
     </Container>
   );
-}
+};
 const PrevBtn = styled.div`
   position: absolute;
   display: flex;
@@ -256,5 +256,3 @@ const Evaluate = styled.div`
   position: absolute;
   bottom: 10px;
 `;
-
-export default MainTaxi;

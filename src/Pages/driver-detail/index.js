@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import DetailComments from './Components/DetailComments';
-import DetailDriverInfo from './Components/DetailDriverInfo';
-import DetailReserve from './Components/DetailReserve';
-import { API } from '../../config';
 import { useParams } from 'react-router-dom';
-import Nav from '../../Components/Nav';
-import Footer from '../Main/Components/MainFooter';
+import Nav from '../../Components/nav';
+import { Comments } from '../../Components/comments';
+import { DriverBio } from '../../Components/driver-bio';
+import { DriverReserving } from '../../Components/driver-reserving';
+import { Footer } from '../../Components/footer';
+import { API } from '../../config';
 
 const isValidObject = obj => !!Object.keys(obj).length;
 
-const DetailDrivers = () => {
+export const DriverDetail = () => {
   const params = useParams();
   const [taxiDriverInfo, setTaxiDriverInfo] = useState({});
 
@@ -30,8 +30,7 @@ const DetailDrivers = () => {
       <Nav />
       <Container>
         <DetailMain>
-          <DetailDriverInfo
-            id={taxiDriverInfo.id}
+          <DriverBio
             name={taxiDriverInfo.name}
             profile={taxiDriverInfo.profile_url}
             company={taxiDriverInfo.taxi_company_name}
@@ -39,23 +38,17 @@ const DetailDrivers = () => {
             averageGrade={taxiDriverInfo.average_rating}
             companyLogo={taxiDriverInfo.taxi_company_logo_url}
           />
-          <DetailComments
+          <Comments
             id={taxiDriverInfo.id}
-            name={taxiDriverInfo.name}
-            profile={taxiDriverInfo.profile_url}
-            company={taxiDriverInfo.taxi_company_name}
-            introduction={taxiDriverInfo.introduction}
             averageGrade={taxiDriverInfo.average_rating}
           />
         </DetailMain>
-        <DetailReserve />
+        <DriverReserving />
       </Container>
       <Footer />
     </>
   );
 };
-
-export default DetailDrivers;
 
 const Container = styled.section`
   ${({ theme }) => theme.flexBox('center', 'stretch')}

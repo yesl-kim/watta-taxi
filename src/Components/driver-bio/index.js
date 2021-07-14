@@ -1,7 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const DetailDriverInfo = props => {
+export const DriverBio = ({
+  name,
+  profile,
+  company,
+  introduction,
+  averageGrade,
+  companyLogo,
+}) => {
   const getStar = grade => {
     const yellowGrade = Math.floor(grade);
     const yellowStar = [...Array(yellowGrade)].map(() => (
@@ -18,30 +25,28 @@ const DetailDriverInfo = props => {
     <>
       <DriverTitle>
         <TitleContent>
-          <h1>[Watta Taxi] {props.name} 기사님</h1>
+          <h1>[Watta Taxi] {name} 기사님</h1>
         </TitleContent>
       </DriverTitle>
       <DriverDescription>
-        <DriverImg alt="기사님 사진" src={props.profile} />
+        <DriverImg alt="기사님 사진" src={profile} />
         <DriverIntroduction>
           <TitleRating>
-            <ReviewStar>{getStar(props.averageGrade)}</ReviewStar>
+            <ReviewStar>{getStar(averageGrade)}</ReviewStar>
             <TitleRatingGrade>
-              <p>{Math.round(props.averageGrade * 100) / 100}</p>
+              <p>{Math.round(averageGrade * 100) / 100}</p>
             </TitleRatingGrade>
           </TitleRating>
-          <DriverIntro>"{props.introduction}"" </DriverIntro>
+          <DriverIntro>"{introduction}"" </DriverIntro>
           <CompanyInfos>
-            <CompanyLogo alt={props.company} src={props.companyLogo} />
-            <CompanyName>{props.company}</CompanyName>
+            <CompanyLogo alt={company} src={companyLogo} />
+            <CompanyName>{company}</CompanyName>
           </CompanyInfos>
         </DriverIntroduction>
       </DriverDescription>
     </>
   );
 };
-
-export default DetailDriverInfo;
 
 const DriverTitle = styled.header`
   ${({ theme }) => theme.flexBox()}

@@ -1,15 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function Destination({ code, spot, date }) {
-  return (
-    <Container>
-      <Code>{code}</Code>
-      <Spot>{spot}</Spot>
-      <Date>{date}</Date>
-    </Container>
-  );
-}
+export const Destination = ({ code, spot, date }) => (
+  <Container>
+    <Code>{code}</Code>
+    <Spot>{spot}</Spot>
+    <Date>{date}</Date>
+  </Container>
+);
 
 export default Destination;
 
