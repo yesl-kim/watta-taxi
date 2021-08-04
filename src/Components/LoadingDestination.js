@@ -1,15 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const Destination = ({ code, spot, date }) => (
+export const LoadingDestination = ({ code, spot, date }) => (
   <Container>
     <Code>{code}</Code>
     <Spot>{spot}</Spot>
     <Date>{date}</Date>
   </Container>
 );
-
-export default Destination;
 
 const Container = styled.div`
   margin: 0 2rem;

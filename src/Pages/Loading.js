@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { Destination } from '../../Components/loading-destination';
-import * as Elements from '../../Components/elements';
-import { getDate } from '../../util';
+import { LoadingDestination } from '../components/LoadingDestination';
+import * as Elements from '../components/elements';
+import { getDate } from '../util';
 
 export const Loading = ({ courseInfo }) => {
   const {
@@ -25,13 +25,13 @@ export const Loading = ({ courseInfo }) => {
         항공권을 찾고 있습니다.
       </Description>
       <DestinationBox>
-        <Destination
+        <LoadingDestination
           code={departure_location_code}
           spot={departure_location_name}
           date={startDate}
         />
         <Elements.Arrow color="rgba(256, 256, 256, 0.5)" />
-        <Destination
+        <LoadingDestination
           code={arrival_location_code}
           spot={arrival_location_name}
           date={endDate || startDate}

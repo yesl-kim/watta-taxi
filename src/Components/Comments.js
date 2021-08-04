@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { token } from '../../utils/token';
-import { API } from '../../config';
+import { token } from '../utils/token';
+import { API } from '../config';
 
 export const Comments = ({ id, averageGrade }) => {
   const [starValue, SetstarValue] = useState([...Array(5).fill(false)]);

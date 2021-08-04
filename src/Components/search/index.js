@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { darken } from 'polished';
-import SearchBar from '../../../Components/Search/SearchBar';
+import SearchBar from './items/SearchBar';
 
-function SearchMenu() {
+export const Search = () => {
   const [isRoundTrip, setIsRoundTrip] = useState(true);
 
   const setRoundTrip = () => {
@@ -27,9 +27,7 @@ function SearchMenu() {
       <SearchBar isRoundTrip={isRoundTrip} />
     </Container>
   );
-}
-
-export default SearchMenu;
+};
 
 const Container = styled.div`
   position: relative;

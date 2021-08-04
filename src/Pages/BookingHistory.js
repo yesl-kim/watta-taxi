@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { bold, size, color } from '../list/Components/fontStyle';
-import * as Elements from '../../Components/elements';
-import Nav from '../../Components/nav';
-import { Footer } from '../../Components/footer';
+import { bold, size, color } from './list/Components/fontStyle';
+import * as Elements from '../components/elements';
+import Nav from '../components/Nav';
+import { Footer } from '../components/Footer';
 
 export const BookingHistory = () => {
   const [reservedTaxi, setReservedTaxi] = useState([]);

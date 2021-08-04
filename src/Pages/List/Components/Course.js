@@ -1,15 +1,15 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { bold, size, color } from './fontStyle';
-import * as Elements from '../../../Components/elements';
-import Button from '../../../Components/Button';
+import * as Elements from '../../../components/elements';
+import Button from '../../../components/Button';
 import { getDate } from '../../../util';
 
 const getTime = time => {
   return time.slice(-8, -3);
 };
 
-function Course({ info, selectCourse }) {
+export function Course({ info, selectCourse }) {
   const { price, seat_remain, courses, seat_type } = info;
   const {
     departure_time,
@@ -62,8 +62,6 @@ function Course({ info, selectCourse }) {
     </Container>
   );
 }
-
-export default Course;
 
 export function SelectedCourse({ course }) {
   const {

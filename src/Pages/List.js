@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { bold, size, color } from './Components/fontStyle';
 import { Course, SelectedCourse, UserCourse } from './Components/Course';
 import CheckBoxes from './Components/Checkbox';
-import { Loading } from '../Loading';
+import { Loading } from './Loading';
 import { queryToObj, objToQuery, customFetch } from '../../util';
 import { API } from '../../config';
 import InputRange from './Components/InputRange';

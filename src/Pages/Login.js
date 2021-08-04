@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { API } from '../../config';
-import { GetToken, SetToken } from '../../Components/GetSetToken';
-import Nav from '../../Components/nav';
-import { Footer } from '../../Components/footer';
+import { GetToken, SetToken } from '../components/GetSetToken';
+import Nav from '../components/Nav';
+import { Footer } from '../components/Footer';
+import { API } from '../config';
 
 const { Kakao } = window;
 

@@ -1,9 +1,8 @@
 /* eslint-disable jsx-a11y/no-distracting-elements */
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { IoIosArrowBack } from 'react-icons/io';
-import { IoIosArrowForward } from 'react-icons/io';
 import { useHistory } from 'react-router-dom';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 export const MainDriver = () => {
   const history = useHistory();

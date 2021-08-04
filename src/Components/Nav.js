@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Button, { RgbaBtn } from './Button';
 import { API } from '../config';
 import { GetToken, SetToken, RemoveToken } from './GetSetToken';
-import SearchMenu from '../Pages/main/Components/SearchMenu';
+import { Search } from './search';
 
 export const token = {
   //왜 export 쓰지?
@@ -149,7 +149,7 @@ const Nav = ({ history }) => {
         </WidthController>
       </Container>
       <SearchMenuHider visibility={searchMenuVisibility}>
-        <SearchMenu visibility={searchMenuVisibility} />
+        <Search visibility={searchMenuVisibility} />
       </SearchMenuHider>
     </>
   );

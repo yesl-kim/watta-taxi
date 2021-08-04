@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
-import Nav from '../../Components/nav';
-import { Comments } from '../../Components/comments';
-import { DriverBio } from '../../Components/driver-bio';
-import { DriverReserving } from '../../Components/driver-reserving';
-import { Footer } from '../../Components/footer';
-import { API } from '../../config';
+import Nav from '../components/Nav';
+import { Comments } from '../components/Comments';
+import { DriverBio } from '../components/DriverBio';
+import { DriverReserving } from '../components/DriverReserving';
+import { Footer } from '../components/Footer';
+import { API } from '../config';
 
 const isValidObject = obj => !!Object.keys(obj).length;
 

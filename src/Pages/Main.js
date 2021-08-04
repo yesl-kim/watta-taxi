@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Nav from '../../Components/nav';
-import { Banner } from '../../Components/banner';
-import { MainDriver } from '../../Components/main-driver';
-import { MainCourse } from '../../Components/main-course';
-import { Footer } from '../../Components/footer';
+import Nav from '../components/Nav';
+import { Banner } from '../components/Banner';
+import { MainDriver } from '../components/MainDriver';
+import { MainCourse } from '../components/MainCourse';
+import { Footer } from '../components/Footer';
 
 export const Main = () => {
   return (

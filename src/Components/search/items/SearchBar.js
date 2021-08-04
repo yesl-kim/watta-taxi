@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
-import DateInput from './Components/DateInput';
-import Passenger from './Components/Passenger';
-import Button from '../Button';
-import Location from './Components/Location';
-import { API } from '../../config';
+import DateInput from './DateInput';
+import Passenger from './Passenger';
+import Button from '../../Button';
+import Location from './Location';
+import { API } from '../../../config';
 
 function SearchBar({ isRoundTrip, history }) {
   const [selectBoxState, setSelectBoxState] = useState({
