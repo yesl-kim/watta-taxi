@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Login from './Pages/Login/Login';
-import Main from './Pages/Main/Main';
-import List from './Pages/List/List';
-import DetailDrivers from './Pages/DetailTaxiDriver/DetailTaxiDriver';
-import Reserve from './Pages/Reserve/Reserve';
+// import { Main } from './Pages/main';
+// import { Login } from './Pages/login';
+// import { List } from './pages/list/index';
+// import { DriverDetail } from './Pages/driver-detail';
+// import { BookingHistory } from './Pages/booking-history';
+import { Main, Login, List, DriverDetail, BookingHistory } from './pages';
 
 class Routes extends React.Component {
   render() {
@@ -14,8 +15,8 @@ class Routes extends React.Component {
           <Route exact path="/" component={Main} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/list" component={List} />
-          <Route exaxt path="/detail/:id" component={DetailDrivers} />
-          <Route exact path="/reserve" component={Reserve} />
+          <Route exaxt path="/detail/:id" component={DriverDetail} />
+          <Route exact path="/reserve" component={BookingHistory} />
         </Switch>
       </Router>
     );
