@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaCheckSquare } from 'react-icons/fa';
-import { color, size } from './fontStyle';
+import { color, size } from '../../../styles/fontStyle';
 
 function CheckBox({ children, checked, onChange, ...rest }) {
   return (

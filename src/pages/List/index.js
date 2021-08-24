@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { bold, size, color } from './Components/fontStyle';
-import { Course, SelectedCourse, UserCourse } from './Components/Course';
-import CheckBoxes from './Components/Checkbox';
+import { Course, SelectedCourse, UserCourse } from './components/Course';
+import CheckBoxes from './components/Checkbox';
 import { Loading } from '../Loading';
-import { queryToObj, objToQuery, customFetch } from '../../util';
-import { API } from '../../config';
-import InputRange from './Components/InputRange';
+import InputRange from './components/InputRange';
 import Button from '../../components/Button';
 import Nav from '../../components/Nav';
 import { Footer } from '../../components/Footer';
+import { bold, size, color } from '../../styles/fontStyle';
+import { queryToObj, objToQuery, customFetch } from '../../util';
+import { API } from '../../config';
 
 export const List = ({ location }) => {
   // 쿼리스트링 처리 =================

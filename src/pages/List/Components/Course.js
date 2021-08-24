@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { bold, size, color } from './fontStyle';
+import { bold, size, color } from '../../../styles/fontStyle';
 import * as Elements from '../../../components/elements';
 import Button from '../../../components/Button';
 import { getDate } from '../../../util';
