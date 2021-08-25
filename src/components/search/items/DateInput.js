@@ -39,7 +39,7 @@ export function RoundTripDate({ size, calendarState, setDate }) {
 
   return (
     <Container size={size}>
-      <InputBox iconUrl="/images/calendar.svg">
+      <InputBox iconUrl="/WattaTaxi/images/calendar.svg">
         <Input
           placeholder="가는 날 선택"
           name="date"
@@ -94,7 +94,7 @@ export function OneWayDate({ size, calendarState, setDate }) {
 
   return (
     <Container size={size}>
-      <InputBox iconUrl="/images/calendar.svg">
+      <InputBox iconUrl="/WattaTaxi/images/calendar.svg">
         <Input
           placeholder="가는 날 선택"
           name="date"

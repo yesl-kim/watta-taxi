@@ -5,7 +5,7 @@ export const Footer = () => {
   const [inputs, setInputs] = useState([]);
 
   useEffect(() => {
-    fetch('/data/MockData.json')
+    fetch('/WattaTaxi/data/MockData.json')
       .then(res => res.json())
       .then(data => {
         setInputs(data.sns);
@@ -15,7 +15,7 @@ export const Footer = () => {
   return (
     <>
       <Container>
-        <img src="./images/profile.png" alt="" />
+        <img src="/WattaTaxi/images/profile.png" alt="" />
         <InviteFriend>
           <p>
             친구 초대하면 <span>무제한 포인트</span>를 드립니다!

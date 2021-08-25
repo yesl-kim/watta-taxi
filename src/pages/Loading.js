@@ -90,7 +90,7 @@ const Container = styled.div`
   ${({ theme }) => theme.flexBox('center', 'center')}
   flex-direction: column;
   height: 100vh;
-  background-image: url('/images/loadingBg.jpg');
+  background-image: url('/WattaTaxi/images/loadingBg.jpg');
   background-size: 105%;
   animation: ${moveToRight} 10s linear 1 forwards;
 
@@ -135,7 +135,7 @@ const Icon = styled.div`
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-image: url('/images/loadingIcon.png');
+    background-image: url('/WattaTaxi/images/loadingIcon.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: 0;

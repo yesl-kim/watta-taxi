@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { API } from '../config';
 
 export const MainCourse = () => {
   const [stationBox, setStation] = useState([]);
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    fetch('http://3.34.199.216:8000/taxis/locations')
+    fetch(API.STATION)
       .then(res => res.json())
       .then(data => {
         setStation(data.station);

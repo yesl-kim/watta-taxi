@@ -20,7 +20,7 @@ function Passenger({
 
   return (
     <Container size={size}>
-      <InputBox iconUrl="/images/passenger.svg">
+      <InputBox iconUrl="/WattaTaxi/images/passenger.svg">
         <Input
           name="passenger"
           value={`승객 ${passenger}명, ${selectedSeat}`}

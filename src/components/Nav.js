@@ -77,7 +77,7 @@ const Nav = ({ history }) => {
             <LogoAndSearchBar>
               <LogoImg
                 alt="watta_logo"
-                src="/images/wa-ttaLogo_0.5.png"
+                src="/WattaTaxi/images/wa-ttaLogo_0.5.png"
                 onClick={() => goToMain()}
               />
               <LogoText inputColor="#495056" onClick={() => goToMain()}>

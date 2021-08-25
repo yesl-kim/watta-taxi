@@ -58,11 +58,11 @@ export const Login = ({ history }) => {
         <Title>{isSignUp ? 'Join Wa:tta!' : 'Welcome!'}</Title>
         <SubText>한강을 누비자! 와따택시</SubText>
         <KakaoLoginButton onClick={() => KakaoLogin()}>
-          <KaKaoIcon alt="kakaoicon" src="/images/kakao.png" />
+          <KaKaoIcon alt="kakaoicon" src="/WattaTaxi/images/kakao.png" />
           카카오로 {isSignUp ? '회원가입' : '로그인'}
         </KakaoLoginButton>
         <EmailLogin>
-          <EmailIcon alt="emailicon" src="/images/email.png" />
+          <EmailIcon alt="emailicon" src="/WattaTaxi/images/email.png" />
           이메일로 {isSignUp ? '로그인' : '회원가입'}
         </EmailLogin>
         <SignUpArea>

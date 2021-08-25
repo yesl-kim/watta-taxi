@@ -34,6 +34,7 @@ function SearchBar({ isRoundTrip, history }) {
   }, []);
 
   const openModal = e => {
+    console.log('open modal');
     const { name } = e.target;
     for (let key in selectBoxState) {
       selectBoxState[key] = false;

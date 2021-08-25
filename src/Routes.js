@@ -1,16 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import { Main } from './Pages/main';
-// import { Login } from './Pages/login';
-// import { List } from './pages/list/index';
-// import { DriverDetail } from './Pages/driver-detail';
-// import { BookingHistory } from './Pages/booking-history';
 import { Main, Login, List, DriverDetail, BookingHistory } from './pages';
 
 class Routes extends React.Component {
   render() {
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route exact path="/" component={Main} />
           <Route exact path="/login" component={Login} />

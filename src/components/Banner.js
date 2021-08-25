@@ -7,7 +7,7 @@ export const Banner = () => {
   const [bannerBox, setBanner] = useState([]);
 
   useEffect(() => {
-    fetch('/data/MockData.json')
+    fetch('/WattaTaxi/data/MockData.json')
       .then(res => res.json())
       .then(data => {
         setBanner(data.banner);

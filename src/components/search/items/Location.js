@@ -59,8 +59,8 @@ const SwitchButton = styled.button`
   padding: 0 16px;
   height: 32px;
   border-radius: 2px;
-  background: rgb(0 0 0 / 20%) url('/images/switch.png') no-repeat center center /
-    24px;
+  background: rgb(0 0 0 / 20%) url('/WattaTaxi/images/switch.png') no-repeat
+    center center / 24px;
   font-size: 0;
   opacity: 0.2;
   cursor: pointer;
