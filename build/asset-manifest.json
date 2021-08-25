@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/WattaTaxi/static/js/main.f81995dc.chunk.js",
+    "main.js.map": "/WattaTaxi/static/js/main.f81995dc.chunk.js.map",
+    "runtime-main.js": "/WattaTaxi/static/js/runtime-main.f623b501.js",
+    "runtime-main.js.map": "/WattaTaxi/static/js/runtime-main.f623b501.js.map",
+    "static/css/2.207546d0.chunk.css": "/WattaTaxi/static/css/2.207546d0.chunk.css",
+    "static/js/2.7e561d32.chunk.js": "/WattaTaxi/static/js/2.7e561d32.chunk.js",
+    "static/js/2.7e561d32.chunk.js.map": "/WattaTaxi/static/js/2.7e561d32.chunk.js.map",
+    "index.html": "/WattaTaxi/index.html",
+    "static/css/2.207546d0.chunk.css.map": "/WattaTaxi/static/css/2.207546d0.chunk.css.map",
+    "static/js/2.7e561d32.chunk.js.LICENSE.txt": "/WattaTaxi/static/js/2.7e561d32.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f623b501.js",
+    "static/css/2.207546d0.chunk.css",
+    "static/js/2.7e561d32.chunk.js",
+    "static/js/main.f81995dc.chunk.js"
+  ]
+}
