@@ -13,10 +13,6 @@ export const InputBox = styled(Box)`
   height: 48px;
   transition: all 0.2s ease;
 
-  &:nth-child(2) {
-    margin-left: 0;
-  }
-
   &:hover {
     box-shadow: 0 1px 4px 0 rgb(0 0 0 / 15%), 0 0 1px 0 rgb(0 0 0 / 10%),
       0 0 0 3px rgb(255 255 255 / 30%);
