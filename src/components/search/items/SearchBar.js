@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { withRouter } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import DateInput from './DateInput';
 import Passenger from './Passenger';
 import Button from '../../Button';
 import Location from './Location';
 import { API } from '../../../config';
 
-function SearchBar({ isRoundTrip, history }) {
+function SearchBar({ isRoundTrip }) {
+  const history = useHistory();
   const [selectBoxState, setSelectBoxState] = useState({
     departure: false,
     arrival: false,
@@ -107,7 +108,7 @@ function SearchBar({ isRoundTrip, history }) {
   );
 }
 
-export default withRouter(SearchBar);
+export default SearchBar;
 
 const Container = styled.form`
   ${({ theme }) => theme.flexBox('between', 'stretch')}
